@@ -6,7 +6,7 @@
  *  @author  Period: 1-7
  *  @author  Assignment: A2008Q4_Checker
  *
- *  @author  Sources: TODO
+ *  @author  Sources: George Peck
  */
 public class CheckerTester
 {
@@ -21,8 +21,10 @@ public class CheckerTester
         Checker yumChecker;
 
         /*** Part (d) ***/
-
-        /* TODO code to construct and assign to yumChecker */
+        
+        Checker notA = new NotChecker(aChecker);
+        Checker notK = new NotChecker(kChecker);
+        yumChecker = new AndChecker(notA, notK);
 
         /****************/
 

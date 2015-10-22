@@ -1,7 +1,16 @@
-/*** TODO Part (a) ***/
-// TODO complete documentation
+/*** Part (a) ***/
+/**
+ *  tests if a certain string contains a substring
+ *
+ *  @author  Alex Xu
+ *  @version October 21, 2015
+ *  @author  Period: 4
+ *  @author  Assignment: A2008Q4_Checker
+ *
+ *  @author  Sources: Alex Xu
+ */
 
-public class SubstringChecker
+public class SubstringChecker implements Checker
 {
     private String s;
 
@@ -15,7 +24,11 @@ public class SubstringChecker
         s = string;
     }
 
-
+    /**
+     *  tests to see if both checkers accept substring
+     * @param stringToCheck substring to check
+     * @return true if it contains the certain string
+     */
     public boolean accept( String stringToCheck )
     {
 

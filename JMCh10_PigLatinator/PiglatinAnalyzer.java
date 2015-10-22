@@ -110,7 +110,7 @@ public class PiglatinAnalyzer
                 end = capatalize( end );
                 start = uncapatalize( start );
             }
-            newPig = end+ start + "ay";
+            newPig = end + start + "ay";
         }
 
         return newPig;
