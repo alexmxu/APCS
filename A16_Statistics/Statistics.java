@@ -116,7 +116,7 @@ public class Statistics
         int compare = 0;
         for(int i = 0; i < scores.length; i++)
         {
-            if(scores[i] >= compare)
+            if(scores[i] > compare)
             {
                 compare = scores[i];
             }
@@ -136,7 +136,7 @@ public class Statistics
      */
     public int[] findMode()
     {
-        //TODO complete method
+        int mode = 0;
         
         return null; // TODO Fix this
     }
