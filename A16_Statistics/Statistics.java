@@ -136,9 +136,25 @@ public class Statistics
      */
     public int[] findMode()
     {
-        int mode = 0;
+        int[] howManyOfEach = new int[MAX_VALUE + 1];
+        for(int i = 0; i < howMany; i++)
+        {
+            howManyOfEach[statsData[i]]++;
+        }
+        int largest = 0;
+        for(int i = 0; i < howMany; i++) {
+            if(largest < howManyOfEach[i]) {
+                largest = howManyOfEach[i];
+            } 
+        }
         
-        return null; // TODO Fix this
+        
+        for(int i = 0; i < howMany; i++) {
+            if(howManyOfEach[i] == largest) {
+                
+            }
+        }
+        return null;
     }
     
     public static void main( String[] args )
