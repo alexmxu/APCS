@@ -75,7 +75,7 @@ public class Statistics
      */
     public double average()
     {
-        long sum = 0;
+        double sum = 0;
         for(int i = 0; i < statsData.length; i++)
         {
             sum += statsData[i];
@@ -92,14 +92,16 @@ public class Statistics
      */
     public double stdDev()
     {
-        int sumOfDiff = 0;
-        for(int i = 0; i < statsData.length; i++)
+        double stdDev;
+        long sumOfDiff = 0;
+
+        for ( int i = 0; i < howMany; i++ )
         {
-            sumOfDiff += Math.pow( statsData[i] - average, 2);
+            sumOfDiff += (long)Math.pow( statsData[i] - average(), 2 );
         }
-        sumOfDiff /= (statsData.length - 1);
-        stdDev = Math.sqrt( sumOfDiff );
-        
+
+        stdDev = Math.sqrt(sumOfDiff / (double)(howMany - 1));
+
         return stdDev;
     }
 
@@ -136,25 +138,36 @@ public class Statistics
      */
     public int[] findMode()
     {
-        int[] howManyOfEach = new int[MAX_VALUE + 1];
-        for(int i = 0; i < howMany; i++)
+
+        int[] nums = new int[MAX_VALUE + 1];
+        for ( int i = 0; i < howMany; i++ )
         {
-            howManyOfEach[statsData[i]]++;
+
+            nums[statsData[i]]++;
         }
-        int largest = 0;
-        for(int i = 0; i < howMany; i++) {
-            if(largest < howManyOfEach[i]) {
-                largest = howManyOfEach[i];
-            } 
-        }
-        
-        
-        for(int i = 0; i < howMany; i++) {
-            if(howManyOfEach[i] == largest) {
-                
+
+        int largest = findLargest( nums );
+        int counter = 0;
+        for ( int i = 0; i < nums.length; i++ )
+        {
+            if ( nums[i] == largest )
+            {
+                counter++;
             }
         }
-        return null;
+
+        int count = 0;
+        int[] modes = new int[counter];
+        for ( int i = 0; i < nums.length; i++ )
+        {
+            if ( nums[i] == largest )
+            {
+                modes[count] = i;
+                count++;
+            }
+        }
+
+        return modes;
     }
     
     public static void main( String[] args )
