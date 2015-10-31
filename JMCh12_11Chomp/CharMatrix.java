@@ -23,7 +23,8 @@ public class CharMatrix
      */
     public CharMatrix( int rows, int cols )
     {
-        // TODO: complete constructor
+        grid = new char[rows][cols];
+        clearRect(0, 0, rows-1, cols-1);
     }
 
     /**
@@ -36,7 +37,14 @@ public class CharMatrix
      */
     public CharMatrix( int rows, int cols, char fill )
     {
-        // TODO: complete constructor
+        grid = new char[rows][cols];
+        for ( int i = 0; i < rows; i++ )
+        {
+            for ( int j = 0; j < cols; j++ )
+            {
+                grid[i][j] = fill;
+            }
+        }
     }
 
     /**
@@ -46,7 +54,7 @@ public class CharMatrix
      */
     public int numRows()
     {
-        // TODO: complete method
+        return grid.length;
     }
 
     /**
@@ -56,7 +64,7 @@ public class CharMatrix
      */
     public int numCols()
     {
-        // TODO: complete method
+        return grid[0].length;
     }
 
     /**
@@ -68,7 +76,7 @@ public class CharMatrix
      */
     public char charAt( int row, int col )
     {
-        // TODO: complete method
+        return grid[row][col];
     }
 
     /**
