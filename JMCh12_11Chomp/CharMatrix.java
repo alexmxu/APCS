@@ -1,13 +1,13 @@
 /**
  * Implements a 2-D array of characters.
  *
- * @author Alex Xu
- * @version 10/23/2015
+ * @author TODO Your Name
+ * @version TODO Date
  * 
- * @author Period - 4
+ * @author Period - TODO Your Period
  * @author Assignment - JMCh12_11Chomp
  * 
- * @author Sources - Alex Xu
+ * @author Sources - TODO list collaborators
  */
 public class CharMatrix
 {
@@ -23,7 +23,7 @@ public class CharMatrix
      */
     public CharMatrix( int rows, int cols )
     {
-        grid[][] = new int[8][8]; 
+        // TODO: complete constructor
     }
 
     /**
@@ -36,7 +36,7 @@ public class CharMatrix
      */
     public CharMatrix( int rows, int cols, char fill )
     {
-        int[][] matrix = new 
+        // TODO: complete constructor
     }
 
     /**
