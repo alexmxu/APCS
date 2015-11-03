@@ -258,7 +258,7 @@ public class JMCh12Exercises
         ArrayList<String> newList = new ArrayList<String>();
         for ( int i = list.size(); i > 0; i-- )
         {
-            newList.add( list.get( i ) );
+            newList.add( list.get( i-1 ) );
         }
         return newList;
     }
@@ -271,15 +271,25 @@ public class JMCh12Exercises
     // that returns the difference of this Integer and other.)
     public void removeMin( ArrayList<Integer> list )
     {
-        Integer firstInt = new Integer( list.get( 0 ) );
-        for ( int i = 1; i < list.size(); i++ )
+        if ( list.size() == 0 )
         {
-            if ( firstInt.compareTo( list.get( i ) ) >= 0 )
+            return;
+        }
+        int remove = 0;
+        int firstInt = list.get( 0 );
+
+        for ( int i = 0; i < list.size(); i++ )
+        {
+            if ( list.get( i ) < firstInt )
             {
+                remove = i;
                 firstInt = list.get( i );
             }
         }
+
+        list.remove( remove );
     }
+    
 
 
     // 12-14
