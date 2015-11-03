@@ -173,9 +173,9 @@ public class JMCh12Exercises
         int b = 2 * m * n;
         int c = ( m * m ) + ( n * n );
 
-        int[] ans = { a, b, c };
+        int[] triple = { a, b, c };
 
-        return ans;
+        return triple;
     }
 
 
@@ -255,7 +255,12 @@ public class JMCh12Exercises
     // list should remain unchanged.
     public ArrayList<String> reverse( ArrayList<String> list )
     {
-
+        ArrayList<String> newList = new ArrayList<String>();
+        for ( int i = list.size(); i > 0; i-- )
+        {
+            newList.add( list.get( i ) );
+        }
+        return newList;
     }
 
 
@@ -266,7 +271,14 @@ public class JMCh12Exercises
     // that returns the difference of this Integer and other.)
     public void removeMin( ArrayList<Integer> list )
     {
-        // TODO complete method
+        Integer firstInt = new Integer( list.get( 0 ) );
+        for ( int i = 1; i < list.size(); i++ )
+        {
+            if ( firstInt.compareTo( list.get( i ) ) >= 0 )
+            {
+                firstInt = list.get( i );
+            }
+        }
     }
 
 
@@ -281,23 +293,27 @@ public class JMCh12Exercises
     // (Hint: the contains and indexOf methods cannot be used.)
     public void filter( ArrayList<Object> list1, ArrayList<Object> list2 )
     {
-        int i =0;
-        ArrayList<Object> similar = new ArrayList<Object>();
-        while (i<list1.size()) {
-            int j = 0;
-            Object temp = list1.get(i);
-            while (j<list2.size()) {
-                if (temp == list2.get( j )) {
-                    similar.add( temp );
+        int num1 = 0;
+        ArrayList<Object> compare = new ArrayList<Object>();
+        while ( num1 < list1.size() )
+        {
+            int num2 = 0;
+            Object x = list1.get( num1 );
+            while ( num2 < list2.size() )
+            {
+                if ( x == list2.get( num2 ) )
+                {
+                    compare.add( x );
                 }
-                j++;
+                num2++;
             }
-            i++;
+            num1++;
         }
-        
-        System.out.println(similar.size());
-        for(Object x: similar) {
-            list1.remove(x);
+
+        System.out.println( compare.size() );
+        for ( Object x : compare )
+        {
+            list1.remove( x );
         }
     }
 
@@ -413,15 +429,18 @@ public class JMCh12Exercises
     public static double positiveMax( double[][] m )
     {
         double mMax = 0;
-        
-        for (int i = 0; i < m.length; i++) {
-            for (int j = 0; j < m[i].length; j++) {
-                if (m[i][j] > mMax) {
+
+        for ( int i = 0; i < m.length; i++ )
+        {
+            for ( int j = 0; j < m[i].length; j++ )
+            {
+                if ( m[i][j] > mMax )
+                {
                     mMax = m[i][j];
                 }
             }
         }
-        
+
         return mMax;
     }
 
@@ -435,14 +454,17 @@ public class JMCh12Exercises
     // Precondition: m1 and m2 have the same dimensions.
     public static boolean covers( double[][] m1, double[][] m2 )
     {
-        for (int i = 0; i < m2.length; i++) {
-            for (int j = 0; j < m2[i].length; j++) {
-                if (m2[i][j] > m1[i][j]) {
+        for ( int i = 0; i < m2.length; i++ )
+        {
+            for ( int j = 0; j < m2[i].length; j++ )
+            {
+                if ( m2[i][j] > m1[i][j] )
+                {
                     return false;
                 }
             }
         }
-        
+
         return true;
 
     }
