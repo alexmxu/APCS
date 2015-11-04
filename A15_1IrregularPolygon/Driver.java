@@ -1,14 +1,16 @@
 import java.awt.geom.*;
 
+
 public class Driver
 {
-	/**
-	 * Method main
-	 *
-	 *
-	 * @param args command-line parameters (not used)
-	 *
-	 */
+    /**
+     * Method main
+     *
+     *
+     * @param args
+     *            command-line parameters (not used)
+     *
+     */
     public static void main( String[] args )
     {
         IrregularPolygon parallelogram = new IrregularPolygon();
@@ -19,7 +21,9 @@ public class Driver
 
         parallelogram.draw();
         System.out.println( "\nParallelogram" );
-        System.out.printf( "%s%.2f", "Perimeter = ", parallelogram.perimeter() );
+        System.out.printf( "%s%.2f",
+            "Perimeter = ",
+            parallelogram.perimeter() );
         System.out.printf( "%s%.2f", "\nArea = ", parallelogram.area() );
         System.out.println();
 
@@ -49,11 +53,11 @@ public class Driver
         IrregularPolygon pentagon = new IrregularPolygon();
 
         pentagon.add( new Point2D.Double( 90.0, 123.87437284240565 ) );
-        pentagon.add( new Point2D.Double( 145.62305898749054,
-            -47.31580009072198 ) );
+        pentagon.add(
+            new Point2D.Double( 145.62305898749054, -47.31580009072198 ) );
         pentagon.add( new Point2D.Double( 0.0, -153.11714550336717 ) );
-        pentagon.add( new Point2D.Double( -145.6230589874905,
-            -47.31580009072202 ) );
+        pentagon.add(
+            new Point2D.Double( -145.6230589874905, -47.31580009072202 ) );
         pentagon.add( new Point2D.Double( -90.0, 123.87437284240563 ) );
 
         pentagon.draw();
@@ -65,21 +69,14 @@ public class Driver
     }
 }
 
-/**************** sample run ****************************
-Parallelogram
-Perimeter = 174.09
-Area = 1700.00
-
-Default polygon with 0 vertices
-Perimeter = 0.0
-Area = 0.0
-
-
-Square
-Perimeter = 720.00
-Area = 32400.00
-
-Pentagon
-Perimeter = 900.00
-Area = 55743.47
-**********************************************************/
+/****************
+ * sample run **************************** Parallelogram Perimeter = 174.09 Area
+ * = 1700.00
+ * 
+ * Default polygon with 0 vertices Perimeter = 0.0 Area = 0.0
+ * 
+ * 
+ * Square Perimeter = 720.00 Area = 32400.00
+ * 
+ * Pentagon Perimeter = 900.00 Area = 55743.47
+ **********************************************************/

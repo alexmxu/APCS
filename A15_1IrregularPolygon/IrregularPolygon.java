@@ -3,31 +3,35 @@ import java.awt.geom.*;
 import java.util.*;
 import gpdraw.*;
 
+
 /**
- * TODO Write a one-sentence summary of your class here.
- * TODO Follow it with additional details about its purpose, what abstraction
- * it represents, and how to use it.
+ * TODO Write a one-sentence summary of your class here. TODO Follow it with
+ * additional details about its purpose, what abstraction it represents, and how
+ * to use it.
  *
- * @author  Alex Xu
+ * @author Alex Xu
  * @version 11/1/15
  *
- * @author  Period - 4
- * @author  Assignment - A15 - -IrregularPolygon
+ * @author Period - 4
+ * @author Assignment - A15 - -IrregularPolygon
  * 
- * @author  Sources - Alex Xu
+ * @author Sources - Alex Xu
  */
 public class IrregularPolygon
 {
-    private DrawingTool pen = new DrawingTool( new SketchPad( 300, 300, 0 ) );
-    private ArrayList<Point2D.Double> myPolygon;
-    private double perimeter;
+    private DrawingTool pen; // = new DrawingTool( new SketchPad( 300, 300, 0 )
+                             // );
 
-    //constuctors
-    
+    private ArrayList<Point2D.Double> myPolygon;
+
+
+    // constuctors
+
     public IrregularPolygon()
     {
         myPolygon = new ArrayList<Point2D.Double>();
     }
+
 
     // public methods
 
@@ -36,24 +40,27 @@ public class IrregularPolygon
         myPolygon.add( aPoint );
     }
 
+
     public double perimeter()
     {
-        double perimter = 0;
-        if (myPolygon.size() <= 2)
+        double perimeter = 0;
+        if ( myPolygon.size() <= 2 )
         {
             return 0;
         }
-        for (int i = 0; i < myPolygon.size(); i++)
+        for ( int i = 0; i < myPolygon.size() - 1; i++ )
         {
-            perimeter += myPolygon.get( i ).distance( myPolygon.get( i+1 ) );
+            perimeter += myPolygon.get( i ).distance( myPolygon.get( i + 1 ) );
         }
-        perimeter += myPolygon.get( myPolygon.size()-1 ).distance( myPolygon.get( 0 ) );
+        perimeter += myPolygon.get( myPolygon.size() - 1 )
+            .distance( myPolygon.get( 0 ) );
         return perimeter;
     }
 
+
     public double area()
     {
-        if ( myPolygon.size() < 3)
+        if ( myPolygon.size() <= 2 )
         {
             return 0;
         }
@@ -68,12 +75,25 @@ public class IrregularPolygon
             area -= myPolygon.get( i ).y * myPolygon.get( i + 1 ).x;
         }
         area -= myPolygon.get( myPolygon.size() - 1 ).y * myPolygon.get( 0 ).x;
-        area = Math.abs( area / 2);
+        area = Math.abs( area / 2 );
         return area;
     }
 
+
     public void draw()
     {
-
+        if ( myPolygon.size() <= 2 )
+        {
+            return;
+        }
+        pen.up();
+        pen.move( myPolygon.get( 0 ).getX(), myPolygon.get( 0 ).getY() );
+        pen.down();
+        for ( int i = 0; i < myPolygon.size() - 1; i++ )
+        {
+            pen.move( myPolygon.get( i + 1 ).getX(),
+                myPolygon.get( i + 1 ).getY() );
+        }
+        pen.move( myPolygon.get( 0 ).getX(), myPolygon.get( 0 ).getY() );
     }
 }
