@@ -26,28 +26,50 @@ public class IrregularPolygon
     
     public IrregularPolygon()
     {
-
+        myPolygon = new ArrayList<Point2D.Double>();
     }
 
     // public methods
 
     public void add( Point2D.Double aPoint )
     {
-
+        myPolygon.add( aPoint );
     }
 
     public double perimeter()
     {
+        double perimter = 0;
+        if (myPolygon.size() <= 2)
+        {
+            return 0;
+        }
         for (int i = 0; i < myPolygon.size(); i++)
         {
-            perimeter += myPolygon.get( i );
+            perimeter += myPolygon.get( i ).distance( myPolygon.get( i+1 ) );
         }
+        perimeter += myPolygon.get( myPolygon.size()-1 ).distance( myPolygon.get( 0 ) );
         return perimeter;
     }
 
     public double area()
     {
-        return 0.0; //fix this!
+        if ( myPolygon.size() < 3)
+        {
+            return 0;
+        }
+        double area = 0;
+        for ( int i = 0; i < myPolygon.size() - 1; i++ )
+        {
+            area += myPolygon.get( i ).x * myPolygon.get( i + 1 ).y;
+        }
+        area += myPolygon.get( myPolygon.size() - 1 ).x * myPolygon.get( 0 ).y;
+        for ( int i = 0; i < myPolygon.size() - 1; i++ )
+        {
+            area -= myPolygon.get( i ).y * myPolygon.get( i + 1 ).x;
+        }
+        area -= myPolygon.get( myPolygon.size() - 1 ).y * myPolygon.get( 0 ).x;
+        area = Math.abs( area / 2);
+        return area;
     }
 
     public void draw()
