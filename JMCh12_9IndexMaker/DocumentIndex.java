@@ -6,7 +6,7 @@ public class DocumentIndex extends ArrayList<IndexEntry>
     // initial capacity.
     public DocumentIndex()
     {
-        // TODO complete constructor
+        new d
     }
 
     //  Creates an empty DocumentIndex with a given
