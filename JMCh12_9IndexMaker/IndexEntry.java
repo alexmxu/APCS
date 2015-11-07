@@ -2,21 +2,23 @@ import java.util.ArrayList;
 
 public class IndexEntry
 {
-    // TODO instance fields
+    private String word;
+
+    private ArrayList<Integer> numsList;
 
     // Constructs an IndexEntry for a given word
     // (converted to upper case); sets numsList
     // to an empty ArrayList.
     public IndexEntry(String word)
     {
-        // TODO complete constructor
+        this.word = word.toUpperCase();
+        numsList = new ArrayList<Integer>();
     }
 
     // Returns the word of this IndexEntry object.
     public String getWord()
     {
-        // TODO complete method
-        return null;  // Fix this!!
+        return word;
     }
 
     // If num is not already in the list, adds num
@@ -24,7 +26,10 @@ public class IndexEntry
     // of numbers.
     public void add(int num)
     {
-        // TODO complete method
+        if (!numsList.contains( num ) )
+        {
+            numsList.add( num );
+        }
     }
 
     // Converts this IndexEntry into a string in the
@@ -32,7 +37,12 @@ public class IndexEntry
     // numbers separated by a comma and a space.
     public String toString()
     {
-        // TODO complete method
-        return null;  // TODO Fix this!!
+        String string = word + " ";
+        for ( Integer temp : numsList )
+        {
+            string += temp.toString() + ", ";
+        }
+        string = string.substring( 0, string.length() - 2 );
+        return string;
     }
 }

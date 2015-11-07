@@ -6,14 +6,14 @@ public class DocumentIndex extends ArrayList<IndexEntry>
     // initial capacity.
     public DocumentIndex()
     {
-        new d
+        super();
     }
 
     //  Creates an empty DocumentIndex with a given
     //  initial capacity.
     public DocumentIndex(int initialCapacity)
     {
-        // TODO complete constructor
+        super( initialCapacity );
     }
 
     //  If word is not yet in this DocumentIndex,
@@ -23,13 +23,21 @@ public class DocumentIndex extends ArrayList<IndexEntry>
     //  its add(num) method.
     public void addWord(String word, int num)
     {
-        // TODO complete method
+        get( foundOrInserted( word ) ).add( num );
     }
 
     //  For each word in str, calls addWord(word, num).
     public void addAllWords(String str, int num)
     {
-        // TODO complete method
+        String[] words = str.split( "\\W+" );
+        for ( String word : words )
+        {
+            if ( word.length() > 0 && Character.isLetter( word.charAt( 0 ) ) )
+            {
+                this.addWord( word, num );
+            }
+        }
+
     }
 
     // Tries to find an EndexEntry with a given word in this
@@ -38,7 +46,21 @@ public class DocumentIndex extends ArrayList<IndexEntry>
     // Returns the index of the found or inserted IndexEntry
     private int foundOrInserted(String word)
     {
-        // TODO complete method
-        return 0;  // TODO Fix this!!
+        int x;
+        for ( x = 0; x < size(); x++ )
+        {
+            int test = get( x ).getWord().compareToIgnoreCase( word );
+            if( test == 0 )
+            {
+                return x;
+            }
+            else if ( test > 0 )
+            {
+                break;
+            }
+        }
+        add( x, new IndexEntry( word ) );
+        return x;
+
     }
 }
