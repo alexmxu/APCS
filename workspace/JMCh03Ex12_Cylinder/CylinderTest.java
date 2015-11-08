@@ -1,0 +1,35 @@
+import java.util.Scanner;
+
+
+/**
+ * This is a class that tests the Cylinder class.
+ *
+ * @author Alex Xu
+ * @version 8/26/15
+ * @author Period: 4
+ * @author Assignment: JMCh03Ex12_Cylinder
+ *
+ * @author Sources: Alex Xu
+ */
+public class CylinderTest
+{
+    /**
+     * The main method in this class checks the Cylinder operations for
+     * consistency.
+     * 
+     * @param args
+     *            is not used.
+     */
+    public static void main( String[] args )
+    {
+        Scanner kb = new Scanner( System.in );
+        System.out.print( "Enter the radius: " );
+        double r = kb.nextDouble();
+        System.out.print( "Enter the height: " );
+        double h = kb.nextDouble();
+
+        Cylinder cylinder = new Cylinder( r, h );
+        double volume = cylinder.getVolume();
+        System.out.println( "radius = " + r + " height = " + h + " area = " + volume );
+    }
+}

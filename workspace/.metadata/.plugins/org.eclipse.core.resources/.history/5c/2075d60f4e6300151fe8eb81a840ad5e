@@ -1,0 +1,67 @@
+/**
+   A class to solve various loop problems
+  
+   @author  Alex Xu
+   @version 9/21/15
+
+   Period - 4
+   Assignment - A12.1 - FunLoops
+
+   Sources - Alex Xu
+ */
+public class FunLoops
+{
+  public void magicsquare( int n )
+  {
+          int res = 1;
+          System.out.println( "Magic Squares" );
+          long sum = 0;
+          long sq = 1;
+          long inc = 0;
+          while ( res <= n )
+          {
+              while ( sum < ( sq * sq ) && sum != ( sq * sq ) )
+              {
+                  sum += inc;
+                  inc++;
+              }
+              if ( sum == ( sq * sq ) )
+              {
+                  System.out.println( res + ": " + ( sq * sq ) );
+                  res++;
+              }
+              sq++;
+          }
+      }
+
+  public int lcm( int a, int b )
+  {
+      int x;
+      if (a>b)
+          x = a;
+      else
+          x = b;
+      while (true){
+          if(a % x == 0 && a % y == 0)
+              return a;
+          a++;
+      }
+  }
+
+  public static void main(String[] args)
+  {
+    FunLoops fun = new FunLoops();
+
+    fun.magicsquare(4);
+    System.out.println();
+    
+    System.out.println("LCM (15, 18) = " + fun.lcm(15,18));
+    System.out.println("LCM (40, 12) = " + fun.lcm(40,12));
+    System.out.println("LCM (2, 7) = " + fun.lcm(2,7));
+    System.out.println("LCM (100, 5) = " + fun.lcm(100,5));
+    System.out.println();
+    
+    fun.magicsquare(10);
+  }
+}
+

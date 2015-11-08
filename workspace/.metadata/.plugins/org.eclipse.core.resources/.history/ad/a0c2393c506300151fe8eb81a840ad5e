@@ -1,0 +1,89 @@
+/**
+ * A class to solve various loop problems
+ * 
+ * @author Alex Xu
+ * @version 9/21/15
+ * 
+ *          Period - 4 Assignment - A12.1 - FunLoops
+ * 
+ *          Sources - Alex Xu
+ */
+public class FunLoops
+{
+    /**
+     * calculates magic squares
+     * 
+     * @param n
+     *            number of magic squares needed
+     */
+    public void magicsquare( int n )
+    {
+        int res = 1;
+        System.out.println( "Magic Squares" );
+        long sum = 0;
+        long numSquared = 1;
+        long  = 0;
+        while ( res <= n )
+        {
+            while ( sum < ( numSquared * numSquared ) && sum != ( numSquared * numSquared ) )
+            {
+                sum += inc;
+                inc++;
+            }
+            if ( sum == ( numSquared * numSquared ) )
+            {
+                System.out.println( res + ": " + ( numSquared * numSquared ) );
+                res++;
+            }
+            sq++;
+        }
+    }
+
+    /**
+     * calculates least common multiple given two integers
+     * 
+     * @param a
+     *            first integer
+     * @param b
+     *            second integer
+     */
+    public int lcm( int a, int b )
+    {
+        int x;
+        x = a * b;
+        while ( a != b )
+        {
+            if ( a > b )
+            {
+                a -= b;
+            }
+            else
+            {
+                b -= a;
+            }
+        }
+        return x / a;
+    }
+
+    /**
+     * main method for implementing Loops
+     * 
+     * @param args
+     *            command line argument
+     */
+    public static void main( String[] args )
+    {
+        FunLoops fun = new FunLoops();
+
+        fun.magicsquare( 4 );
+        System.out.println();
+
+        System.out.println( "LCM (15, 18) = " + fun.lcm( 15, 18 ) );
+        System.out.println( "LCM (40, 12) = " + fun.lcm( 40, 12 ) );
+        System.out.println( "LCM (2, 7) = " + fun.lcm( 2, 7 ) );
+        System.out.println( "LCM (100, 5) = " + fun.lcm( 100, 5 ) );
+        System.out.println();
+
+        fun.magicsquare( 10 );
+    }
+}

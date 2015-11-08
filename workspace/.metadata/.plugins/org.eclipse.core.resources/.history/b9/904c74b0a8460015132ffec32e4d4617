@@ -1,0 +1,21 @@
+
+/**
+ *  Logs "Hello World"
+ *  TODO Follow it with additional details about its purpose, what abstraction
+ *  it represents, and how to use it.
+ *
+ *  @author  Alex Xu
+ *  @version 8/19/15
+ *  @author  Period: 4
+ *  @author  Assignment: JMCh02_Hello - Greetings2.java
+ *
+ *
+ *  @author  Sources: TODO List Collaborators
+ */
+public class HelloWorld
+{
+    public static void main(String[] args)
+    {
+    System.out.println("Hello, World!");
+    } 
+}
