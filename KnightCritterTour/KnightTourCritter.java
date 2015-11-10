@@ -17,12 +17,12 @@ import java.awt.Color;
  * choices - entrances - every one of them has, and then moves
  * to the square with the lowest number of new choices. <br />
  * 
- * @author TODO Your Name
- * @version TODO Date
- * @author Period: TODO Your Period
+ * @author Alex Xu
+ * @version 11/8/15
+ * @author Period: 4
  * @author Assignment: KnightCritterTour
  *
- * @author Sources: TODO I received help from ...
+ * @author Sources: Alex Xu
  */
 public class KnightTourCritter extends KnightCritter
 {
