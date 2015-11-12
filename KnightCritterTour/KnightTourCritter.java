@@ -57,11 +57,17 @@ public class KnightTourCritter extends KnightCritter
      */
     public Location getBestMove( ArrayList<Location> locs )
     {
-        Location bestMove = null;
+        Location move = locs.get( 0 );
 
-        // TODO complete method
-
-        return bestMove;
+        int moveAfter = accessGrid[move.getRow()][move.getCol()];
+        for ( int i = 0; i < locs.size(); i++ )
+        {
+            if ( accessGrid[locs.get( i ).getRow()][locs.get( i ).getCol()] < moveAfter )
+            {
+                move = locs.get( i );
+            }
+        }
+        return move;
     }
 
     /**
@@ -75,7 +81,20 @@ public class KnightTourCritter extends KnightCritter
      */
     public void updateAccess( Location loc )
     {
-        // TODO complete method
+        int row = loc.getRow();
+        int column = loc.getCol();
+        
+        ArrayList<Location> list = getPossibleMoves( loc );
+        
+        for ( int i = 0; i < list.size(); i++ )
+        {
+            int rowtemp = list.get( i ).getRow();
+            int columntemp = list.get( i ).getCol();
+            
+            accessGrid[rowtemp][columntemp]--;
+        }
+        
+        accessGrid[row][column] = -1;
     }
 
     /**
@@ -94,8 +113,15 @@ public class KnightTourCritter extends KnightCritter
      */
     public Location selectMoveLocation( ArrayList<Location> locs )
     {
-        // TODO complete method
-
-        return null; // fix this!!!
+        if ( locs.size() == 0 )
+        {
+            return getLocation();
+            
+        }
+        else
+        {
+            updateAccess( getBestMove (locs) );
+            return getBestMove( locs );
+        }
     }
 }
