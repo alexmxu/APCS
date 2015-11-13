@@ -15,12 +15,12 @@ import java.awt.Color;
  *  TODO Follow it with additional details about its purpose, what abstraction
  *  it represents, and how to use it.
  *
- *  @author  TODO Your Name
- *  @version TODO Date
- *  @author Period: TODO
+ *  @author  Alex Xu
+ *  @version 11/8/15
+ *  @author Period: 4
  *  @author Assignment: AB24_1EraseObject_GridWorld
  *
- *  @author Sources: TODO
+ *  @author Sources: Alex Xu
  */
 public class EraseObject extends World<Tile>
 {
@@ -85,7 +85,8 @@ public class EraseObject extends World<Tile>
      */
     private void getData( String fName )
     {
-        // TODO complete method
+        fin >> 
+        how the fuck do you do input
     }
 
     /**
