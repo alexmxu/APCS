@@ -1,4 +1,5 @@
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.io.IOException;
 
@@ -85,8 +86,30 @@ public class EraseObject extends World<Tile>
      */
     private void getData( String fName )
     {
-        fin >> 
-        how the fuck do you do input
+        File fileIn = new File( fName );
+        Scanner scannerIn = new Scanner( System.in );
+
+        try
+        {
+            scannerIn = new Scanner( fileIn );
+        }
+        catch ( FileNotFoundException e )
+        {
+            System.out.println( "error" );
+        }
+
+        int num = scannerIn.nextInt();
+        for ( int i = 0; i < num; i++ )
+        {
+            int row = scannerIn.nextInt();
+            int column = scannerIn.nextInt();
+
+            Location loc = new Location( row, column );
+
+            // add the tile
+            Tile tile = new Tile( IMGOBJ_COLOR );
+            add( loc, tile );
+        }
     }
 
     /**
