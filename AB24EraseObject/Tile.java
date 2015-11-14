@@ -28,7 +28,7 @@ public class Tile
     /**
      * returns current color
      * 
-     * @param color
+     * @return color
      */
     public Color getColor()
     {
@@ -38,8 +38,8 @@ public class Tile
 
     /**
      * sets a new color
-     * 
-     * @param color
+     * @param color new color
+     * @return color
      */
     public void setColor( Color color )
     {
