@@ -1,11 +1,9 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
-import java.io.IOException;
 
 import info.gridworld.grid.Grid;
 import info.gridworld.grid.BoundedGrid;
-import info.gridworld.grid.UnboundedGrid;
 import info.gridworld.grid.Location;
 import info.gridworld.world.World;
 
@@ -13,9 +11,7 @@ import java.awt.Color;
 
 
 /**
- * TODO Write a one-sentence summary of your class here. TODO Follow it with
- * additional details about its purpose, what abstraction it represents, and how
- * to use it.
+ * Erases objects that are connected.
  *
  * @author Alex Xu
  * @version 11/8/15
@@ -161,7 +157,10 @@ public class EraseObject extends World<Tile>
         }
     }
 
-
+    /**
+     * main method to test eraseobject class
+     * @param args command line argument
+     */
     public static void main( String[] args )
     {
         new EraseObject().show();
