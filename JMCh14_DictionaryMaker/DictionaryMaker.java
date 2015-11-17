@@ -6,13 +6,13 @@ import java.io.*;
    TODO Follow it with additional details about its purpose, what abstraction
    it represents, and how to use it.
 
-   @author  TODO Your Name
-   @version TODO the date
+   @author  Alex Xu
+   @version 11/15/15
 
-   @author Period - TODO Your Period
+   @author Period - 4
    @author Assignment - JM Ch14 - DictionaryMaker
 
-   @author Sources - TODO list collaborators
+   @author Sources - Alex Xu
  */
 public class DictionaryMaker
 {
