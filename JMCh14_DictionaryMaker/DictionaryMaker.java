@@ -56,7 +56,16 @@ public class DictionaryMaker
      */ 
     public static void openInputFile(String fileName)
     {
-        // TODO complete method
+        File list = new File( fileName );
+        try
+        {
+            fileIn = new Scanner( list );
+        }
+        catch ( FileNotFoundException e)
+        {
+            System.out.print( "error " + fileName );
+            System.exit( 1 );
+        }
     }
 
     /**
@@ -65,7 +74,16 @@ public class DictionaryMaker
      */ 
     public static void createOutputFile(String fileName)
     {
-        // TODO complete method
+        File words = new File( fileName );
+        try
+        {
+            fileOut = new PrintWriter( words );
+        }
+        catch( FileNotFoundException e )
+        {
+            System.out.print( "error " + fileName );
+            System.exit( 1 );
+        }
     }
 
     /**
@@ -78,10 +96,24 @@ public class DictionaryMaker
      */ 
     public static int copyWords()
     {
-
-        // TODO complete method
-
-        return 0;  // fix this!!!
+        int counter = 0;
+        fileOut.println( "public class RamblecsDictionary" );
+        fileOut.println( "{");
+        fileOut.println( "    public String words[] =" );
+        fileOut.println( "    {" );
+        while ( fileIn.hasNext() )
+        {
+            String string = fileIn.next();
+            if ( string.length() >= MINLENGTH && string.length() <= MAXLENGTH)
+            {
+                fileOut.println("        \"" + string.toUpperCase() + "\"," );
+                counter++;
+            }
+        }
+        fileOut.println( "    };");
+        fileOut.println( "}");
+        
+        return counter;
     }
 }
 
