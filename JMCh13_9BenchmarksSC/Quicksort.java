@@ -7,13 +7,18 @@ public class Quicksort extends StepCount
         recursiveSort( a, 0, a.length - 1 );
     }
 
+
     // Recursive helper method: sorts a[from], ..., a[to]
     private void recursiveSort( double[] a, int from, int to )
     {
         if ( from >= to )
+        {
+            addSteps( 2 );
             return;
+        }
 
         // Choose pivot a[p]:
+        addSteps( 3 );
         int p = ( from + to ) / 2;
         // The choice of the pivot location may vary:
         // you can also use p = from or p = to or use
@@ -25,16 +30,20 @@ public class Quicksort extends StepCount
         int j = to;
         while ( i <= j )
         {
+            addSteps( 1 );
             if ( a[i] <= a[p] )
             {
+                addSteps( 2 );
                 i++;
             }
             else if ( a[j] >= a[p] )
             {
+                addSteps( 2 );
                 j--;
             }
             else
             {
+                addSteps( 5 );
                 swap( a, i, j );
                 i++;
                 j--;
@@ -42,19 +51,21 @@ public class Quicksort extends StepCount
         }
 
         // Finish partitioning:
-
         if ( p < j ) // place the pivot in its correct position
         {
+            addSteps( 4 );
             swap( a, j, p );
             p = j;
         }
         else if ( p > i )
         {
+            addSteps( 4 );
             swap( a, i, p );
             p = i;
         }
 
         // Sort recursively:
+        addSteps( 2 );
         recursiveSort( a, from, p - 1 );
         recursiveSort( a, p + 1, to );
     }

@@ -4,9 +4,11 @@ public class InsertionSort extends StepCount
     // using Insertion Sort.
     public void sort( double[] a )
     {
+        addSteps(1);
         for ( int n = 1; n < a.length; n++ )
         {
             // Save the next element to be inserted:
+            addSteps(5);
             double aTemp = a[n];
 
             // Going backward from a[n-1], shift elements to the
@@ -14,10 +16,11 @@ public class InsertionSort extends StepCount
             int i = n;
             while ( i > 0 && aTemp < a[i - 1] )
             {
+                addSteps(5);
                 a[i] = a[i - 1];
                 i--;
             }
-
+            addSteps(1);
             // Insert the saved element after a[i]:
             a[i] = aTemp;
         }
