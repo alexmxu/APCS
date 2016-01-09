@@ -55,7 +55,19 @@ public class LinkedListWithTail<E>
      */
     public boolean add(E obj)
     {
-        // TODO: complete method
+        if(isEmpty())
+        {
+            head = new ListNode<E>(obj,tail);
+            tail = head;
+            return true;
+        }
+        else
+        {
+            ListNode<E> a = new ListNode<E>(obj,null); 
+            tail.setNext( a );
+            tail = a;
+            return true;
+        }
     }
 
     /**
@@ -66,7 +78,13 @@ public class LinkedListWithTail<E>
      */
     public E remove()
     {
-        // TODO: complete method
+        if( isEmpty() )
+        {
+            throw new NoSuchElementException();      
+        }
+        E output = head.getValue();
+        head = head.getNext();
+        return output;
     }
     
     /**
@@ -80,7 +98,14 @@ public class LinkedListWithTail<E>
      */
     public void append( LinkedListWithTail<E> otherList )
     {
-        // TODO: complete method
+        if (isEmpty())
+        {
+            head = otherList.head;
+        }
+        else if ( !( otherList == null ) )
+        {
+            tail.setNext( otherList.head );
+        }
     }
     
     /**   *** FOR TESTING PURPOSES ONLY ***
